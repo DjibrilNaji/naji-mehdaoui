@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  db:
+    image: postgres
+    container_name: local_pimber
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=pimber_admin
+      - POSTGRES_PASSWORD=pimber_admin
+      - POSTGRES_DB=pimber

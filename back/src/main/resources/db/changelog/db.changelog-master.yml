@@ -1,0 +1,888 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1730978466586-1
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: comment_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  name: rating
+                  type: SMALLINT
+              - column:
+                  name: text
+                  type: VARCHAR(255)
+              - column:
+                  name: involved_user_id
+                  type: UUID
+              - column:
+                  name: posting_user_id
+                  type: UUID
+            tableName: comment
+  - changeSet:
+      id: 1730978466586-2
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: app_user_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  name: created_at
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+              - column:
+                  name: username
+                  type: VARCHAR(30)
+            tableName: app_user
+  - changeSet:
+      id: 1730978466586-3
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: video_game_party_video_games_pkey
+                  name: video_game_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: video_game_party_video_games_pkey
+                  name: party_video_games_id
+                  type: BIGINT
+            tableName: video_game_party_video_games
+  - changeSet:
+      id: 1730978466586-4
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: party_photos_pkey
+                  name: party_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: party_photos_pkey
+                  name: photos_id
+                  type: UUID
+            tableName: party_photos
+  - changeSet:
+      id: 1730978466586-5
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: address_parties_pkey
+                  name: address_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: address_parties_pkey
+                  name: parties_id
+                  type: UUID
+            tableName: address_parties
+  - changeSet:
+      id: 1730978466586-6
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: platform_party_video_games_pkey
+                  name: platform_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: platform_party_video_games_pkey
+                  name: party_video_games_id
+                  type: BIGINT
+            tableName: platform_party_video_games
+  - changeSet:
+      id: 1730978466586-7
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: type_parties_pkey
+                  name: type_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: type_parties_pkey
+                  name: parties_id
+                  type: BIGINT
+            tableName: type_parties
+  - changeSet:
+      id: 1730978466586-8
+      author: adammehdaoui (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: username
+            constraintName: uk3k4cplvh82srueuttfkwnylq0
+            tableName: app_user
+  - changeSet:
+      id: 1730978466586-9
+      author: adammehdaoui (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: party_video_games_id
+            constraintName: uk87s19v2fbypyfct77kyae8i6l
+            tableName: video_game_party_video_games
+  - changeSet:
+      id: 1730978466586-10
+      author: adammehdaoui (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: photos_id
+            constraintName: ukb6wejaldd061fedj9x0eqgr0i
+            tableName: party_photos
+  - changeSet:
+      id: 1730978466586-11
+      author: adammehdaoui (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: parties_id
+            constraintName: ukiixs3xch3w7352tpm8i21q2ov
+            tableName: address_parties
+  - changeSet:
+      id: 1730978466586-12
+      author: adammehdaoui (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: party_video_games_id
+            constraintName: ukpwgl7et8hxiun0u48exry488b
+            tableName: platform_party_video_games
+  - changeSet:
+      id: 1730978466586-13
+      author: adammehdaoui (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: parties_id
+            constraintName: ukrghujut11i29fune3e88sks2v
+            tableName: type_parties
+  - changeSet:
+      id: 1730978466586-14
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: address_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: city
+                  type: VARCHAR(255)
+              - column:
+                  name: name_path
+                  type: VARCHAR(255)
+              - column:
+                  name: num_path
+                  type: BIGINT
+              - column:
+                  name: postal_code
+                  type: VARCHAR(255)
+            tableName: address
+  - changeSet:
+      id: 1730978466586-15
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: board_game_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+            tableName: board_game
+  - changeSet:
+      id: 1730978466586-16
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: board_game_parties_pkey
+                  name: board_game_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: board_game_parties_pkey
+                  name: parties_id
+                  type: UUID
+            tableName: board_game_parties
+  - changeSet:
+      id: 1730978466586-17
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: party_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                  name: bring_something
+                  type: BOOLEAN
+              - column:
+                  constraints:
+                    nullable: false
+                  name: count_people
+                  type: INTEGER
+              - column:
+                  name: end_timestamp
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  constraints:
+                    nullable: false
+                  name: max_people
+                  type: INTEGER
+              - column:
+                  constraints:
+                    nullable: false
+                  name: price
+                  type: FLOAT4
+              - column:
+                  name: publication
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: start_timestamp
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: address_id
+                  type: BIGINT
+              - column:
+                  name: creator_id
+                  type: UUID
+              - column:
+                  name: type_id
+                  type: BIGINT
+            tableName: party
+  - changeSet:
+      id: 1730978466586-18
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: party_board_games_pkey
+                  name: party_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: party_board_games_pkey
+                  name: board_games_id
+                  type: UUID
+            tableName: party_board_games
+  - changeSet:
+      id: 1730978466586-19
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: party_invited_users_pkey
+                  name: parties_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: party_invited_users_pkey
+                  name: invited_users_id
+                  type: UUID
+            tableName: party_invited_users
+  - changeSet:
+      id: 1730978466586-20
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: party_video_game_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: party_id
+                  type: UUID
+              - column:
+                  name: platform_id
+                  type: UUID
+              - column:
+                  name: video_game_id
+                  type: UUID
+            tableName: party_video_game
+  - changeSet:
+      id: 1730978466586-21
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: party_video_games_pkey
+                  name: party_id
+                  type: UUID
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: party_video_games_pkey
+                  name: video_games_id
+                  type: BIGINT
+            tableName: party_video_games
+  - changeSet:
+      id: 1730978466586-22
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: photo_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  name: url
+                  type: VARCHAR(255)
+              - column:
+                  name: party_id
+                  type: UUID
+            tableName: photo
+  - changeSet:
+      id: 1730978466586-23
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: platform_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+            tableName: platform
+  - changeSet:
+      id: 1730978466586-24
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: type_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+            tableName: type
+  - changeSet:
+      id: 1730978466586-25
+      author: adammehdaoui (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: video_game_pkey
+                  name: id
+                  type: UUID
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+            tableName: video_game
+  - changeSet:
+      id: 1730978466586-26
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: address_id
+            baseTableName: address_parties
+            constraintName: fk38k9y4tgr5fwf313o5cnhsuc7
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: address
+            validate: true
+  - changeSet:
+      id: 1730978466586-27
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: party_id
+            baseTableName: party_video_game
+            constraintName: fk3knbsqvtjxyan158lgspyrqpl
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: party
+            validate: true
+  - changeSet:
+      id: 1730978466586-28
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: parties_id
+            baseTableName: address_parties
+            constraintName: fk4wcgfw73n8e9bwiddc9w7nmn9
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: party
+            validate: true
+  - changeSet:
+      id: 1730978466586-29
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: video_games_id
+            baseTableName: party_video_games
+            constraintName: fk5mx03p0cbvdwj67frwvsugios
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: party_video_game
+            validate: true
+  - changeSet:
+      id: 1730978466586-30
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: video_game_id
+            baseTableName: video_game_party_video_games
+            constraintName: fk5n695aaouu6msvv4ugolyt9rs
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: video_game
+            validate: true
+  - changeSet:
+      id: 1730978466586-31
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: invited_users_id
+            baseTableName: party_invited_users
+            constraintName: fk85jsfc0vn11ab0l6tq2235c6b
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: app_user
+            validate: true
+  - changeSet:
+      id: 1730978466586-32
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: party_id
+            baseTableName: party_video_games
+            constraintName: fkblu4m85tovpxxoeobbitxj3lf
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: party
+            validate: true
+  - changeSet:
+      id: 1730978466586-33
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: photos_id
+            baseTableName: party_photos
+            constraintName: fkdf7q399k1cb32q28su92dh410
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: photo
+            validate: true
+  - changeSet:
+      id: 1730978466586-34
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: type_id
+            baseTableName: party
+            constraintName: fke36aukpq226kxag9emcd5xhjn
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: type
+            validate: true
+  - changeSet:
+      id: 1730978466586-35
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: party_video_games_id
+            baseTableName: platform_party_video_games
+            constraintName: fke846ipn0gxfxp068ij0a1vf8l
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: party_video_game
+            validate: true
+  - changeSet:
+      id: 1730978466586-36
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: parties_id
+            baseTableName: board_game_parties
+            constraintName: fkgr4eygc3b4i9o8rx22scn79y6
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: party
+            validate: true
+  - changeSet:
+      id: 1730978466586-37
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: creator_id
+            baseTableName: party
+            constraintName: fkgwkgcj2hacb6qhrs9951filcd
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: app_user
+            validate: true
+  - changeSet:
+      id: 1730978466586-38
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: parties_id
+            baseTableName: type_parties
+            constraintName: fkgwqyvv8n5183e5oeqjmk9q3f4
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: type
+            validate: true
+  - changeSet:
+      id: 1730978466586-39
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: party_id
+            baseTableName: photo
+            constraintName: fkj8tymjj92pt60i3f0jarr2icu
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: party
+            validate: true
+  - changeSet:
+      id: 1730978466586-40
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: party_video_games_id
+            baseTableName: video_game_party_video_games
+            constraintName: fkjos3awukba0yrysbq9xxd50iv
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: party_video_game
+            validate: true
+  - changeSet:
+      id: 1730978466586-41
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: board_games_id
+            baseTableName: party_board_games
+            constraintName: fkm9s8f3ovqrnhu9guan3f01ajn
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: board_game
+            validate: true
+  - changeSet:
+      id: 1730978466586-42
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: board_game_id
+            baseTableName: board_game_parties
+            constraintName: fknni7ufta8cn188knmqrf70bqu
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: board_game
+            validate: true
+  - changeSet:
+      id: 1730978466586-43
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: involved_user_id
+            baseTableName: comment
+            constraintName: fkocjeut20eusepef43rl542im0
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: app_user
+            validate: true
+  - changeSet:
+      id: 1730978466586-44
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: video_game_id
+            baseTableName: party_video_game
+            constraintName: fkohagw1980jogvf6n972wky2d2
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: video_game
+            validate: true
+  - changeSet:
+      id: 1730978466586-45
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: type_id
+            baseTableName: type_parties
+            constraintName: fkoy760vahahqxl217roifueb59
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: type
+            validate: true
+  - changeSet:
+      id: 1730978466586-46
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: platform_id
+            baseTableName: platform_party_video_games
+            constraintName: fkqdvcl65ptnvw815u59wrr2tkt
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: platform
+            validate: true
+  - changeSet:
+      id: 1730978466586-47
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: parties_id
+            baseTableName: party_invited_users
+            constraintName: fkqfhtbrollhu56lcxy34w6kdhi
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: party
+            validate: true
+  - changeSet:
+      id: 1730978466586-48
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: party_id
+            baseTableName: party_photos
+            constraintName: fkqpap3wxe6hcog83stt648uw69
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: party
+            validate: true
+  - changeSet:
+      id: 1730978466586-49
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: address_id
+            baseTableName: party
+            constraintName: fkr3xd5httl0gqasj69pcxv5lf7
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: address
+            validate: true
+  - changeSet:
+      id: 1730978466586-50
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: platform_id
+            baseTableName: party_video_game
+            constraintName: fkr4bpblub8lshovg3p07u08xye
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: platform
+            validate: true
+  - changeSet:
+      id: 1730978466586-51
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: party_id
+            baseTableName: party_board_games
+            constraintName: fktdmg2inyyqkpg1aoq3159c091
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: party
+            validate: true
+  - changeSet:
+      id: 1730978466586-52
+      author: adammehdaoui (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: posting_user_id
+            baseTableName: comment
+            constraintName: fktj3u68rqc4tb0ierureow9mxe
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: app_user
+            validate: true
+

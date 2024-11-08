@@ -1,0 +1,63 @@
+databaseChangeLog:
+  - changeSet:
+      id: delete-photo
+      author: dev
+      changes:
+        - delete:
+            tableName: photo
+
+  - changeSet:
+      id: delete-comment
+      author: dev
+      changes:
+        - delete:
+            tableName: comment
+
+  - changeSet:
+      id: delete-party
+      author: dev
+      changes:
+        - delete:
+            tableName: party
+
+  - changeSet:
+      id: delete-platform
+      author: dev
+      changes:
+        - delete:
+            tableName: platform
+
+  - changeSet:
+      id: delete-video-game
+      author: dev
+      changes:
+        - delete:
+            tableName: video_game
+
+  - changeSet:
+      id: delete-board-game
+      author: dev
+      changes:
+        - delete:
+            tableName: board_game
+
+  - changeSet:
+      id: delete-address
+      author: dev
+      changes:
+        - delete:
+            tableName: address
+
+  - changeSet:
+      id: delete-user
+      author: dev
+      changes:
+        - delete:
+            tableName: app_user
+
+  - changeSet:
+      id: delete-type
+      author: dev
+      changes:
+        - delete:
+            tableName: type
