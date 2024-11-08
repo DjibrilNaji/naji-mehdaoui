@@ -1,3 +1,3 @@
 export const formatSlug = (name: string) => {
-  return name.replace(" ", "").toLowerCase()
+  return name.replaceAll(" ", "").toLowerCase()
 }

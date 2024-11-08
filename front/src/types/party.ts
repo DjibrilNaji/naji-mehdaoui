@@ -1,3 +1,10 @@
+import { Address } from "./address"
+import { BoardGame } from "./boardGame"
+import { Photo } from "./photo"
+import { Type } from "./type"
+import { User } from "./user"
+import { VideoGame } from "./videoGame"
+
 export type Party = {
   id: string
   name: string
@@ -8,11 +15,11 @@ export type Party = {
   publication: Date
   price: number
   bring_something: boolean
-  type: string // TODO: Enum
-  address: string // TODO: Address
-  videoGames?: string[] // TODO: VideoGame[]
-  boardGames?: string[] // TODO: BoardGame[]
-  photos: string[] // TODO: Photo[]
-  creator: string // TODO: User
-  invitedUsers: string[] // TODO: User[]
+  type: Type
+  address: Address
+  videoGames?: VideoGame[]
+  boardGames?: BoardGame[]
+  photos: Photo[]
+  creator: User
+  invitedUsers: User[]
 }
