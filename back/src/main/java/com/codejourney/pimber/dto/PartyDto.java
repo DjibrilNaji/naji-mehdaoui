@@ -17,11 +17,4 @@ public class PartyDto {
     private LocalDateTime publication;
     private float price;
     private boolean bring_something;
-    private Type type;
-    private Address address;
-    private Set<PartyVideoGame> videoGames;
-    private Set<BoardGame> boardGames;
-    private Set<Photo> photos;
-    private User creator;
-    private Set<User> invitedUsers;
 }
