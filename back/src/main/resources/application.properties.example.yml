@@ -31,3 +31,5 @@ spring.liquibase.enabled=false
 
 spring.security.user.name=pimber_admin
 spring.security.user.password=xxxxxxxxxxxxxxxx
+
+spring.jackson.serialization.fail-on-empty-beans=false

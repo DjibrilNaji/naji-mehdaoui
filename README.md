@@ -8,6 +8,13 @@
 docker-compose -f docker/docker-compose.yml up
 ```
 
+ou aller a la racine du projet et lancer :
+
+```sh
+cd docker
+docker compose up
+```
+
 ## Lancer les migrations Liquibase :
 
 Installer Liquibase sur macos
@@ -31,7 +38,7 @@ liquibase update --changelog-file src/main/resources/db/changelog/delete-seed.ym
 - Back
 
 Lancer le back Spring dans le répertoire `back`.
-A noter qu'il y a un fichier d'exemple pour application.properties pour s'adapter à la configuration de la BDD en local.
+A noter qu'il faut prendre le fichier d'exemple pour application.properties pour s'adapter à la configuration de la BDD en local.
 
 - Front
 
@@ -41,6 +48,8 @@ Lancer le front Next.js :
 npm i
 npm run dev
 ```
+
+On a la possibilité de voir toutes les soirées, de voir une seule soirée et d'ajouter une soirée.
 
 # Optimisation des requêtes pour les Query N+1
 
