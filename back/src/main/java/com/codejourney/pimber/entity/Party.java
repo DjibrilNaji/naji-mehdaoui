@@ -14,6 +14,8 @@ public class Party {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    private String name;
+
     private int count_people;
 
     private int max_people;

@@ -283,6 +283,9 @@ databaseChangeLog:
                   name: id
                   type: UUID
               - column:
+                  name: name
+                  type: VARCHAR(50)
+              - column:
                   constraints:
                     nullable: false
                   name: bring_something

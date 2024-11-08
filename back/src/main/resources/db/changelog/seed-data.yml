@@ -215,6 +215,9 @@ databaseChangeLog:
                   name: id
                   value: "8c9d7b1a-3e4f-4b2c-8a1f-df6e8c7b5a3d"
               - column:
+                  name: name
+                  value: "my first party"
+              - column:
                   name: count_people
                   valueNumeric: 5
               - column:
@@ -250,6 +253,9 @@ databaseChangeLog:
               - column:
                   name: id
                   value: "9d6c7b8a-3a4d-4e9f-b9f8-df7e8d8c6b1a"
+              - column:
+                  name: name
+                  value: "comme here"
               - column:
                   name: count_people
                   valueNumeric: 8
