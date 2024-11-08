@@ -1,9 +1,7 @@
 package com.codejourney.pimber.controller;
 
 import com.codejourney.pimber.dto.AddressDto;
-import com.codejourney.pimber.dto.PartyDto;
 import com.codejourney.pimber.service.AddressService;
-import com.codejourney.pimber.service.PartyService;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
