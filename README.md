@@ -64,6 +64,8 @@ GROUP BY
     u.id;
 ```
 
+A terme, on ajoutera un refresh sur la vue lorsque des commentaires sont ajoutés ou modifiés pour le user.
+
 ## Entité
 
 ```java

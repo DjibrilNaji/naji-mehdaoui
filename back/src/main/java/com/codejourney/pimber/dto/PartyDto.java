@@ -10,6 +10,7 @@ import java.util.UUID;
 @Data
 public class PartyDto {
     private UUID id;
+    private String name;
     private int count_people;
     private int max_people;
     private LocalDateTime start_timestamp;
