@@ -133,3 +133,7 @@ CREATE TABLE party_future PARTITION OF party
 # Swagger
 
 URL : http://localhost:8080/swagger-ui/index.html
+
+# Cache
+
+- Utilisation de cache pour certaines requêtes

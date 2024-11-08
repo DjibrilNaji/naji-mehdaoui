@@ -1,9 +1,8 @@
 package com.codejourney.pimber.service;
 
 import com.codejourney.pimber.dto.AddressDto;
-import com.codejourney.pimber.dto.PartyDto;
 import com.codejourney.pimber.mapper.AddressMapper;
-import com.codejourney.pimber.repository.*;
+import com.codejourney.pimber.repository.AddressRepository;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +18,7 @@ public class AddressService {
         this.addressRepository = addressRepository;
 
     }
+
     public List<AddressDto> findAll(Pageable pageable) {
         return addressMapper.toDtos(addressRepository.findAll(pageable).getContent());
     }
