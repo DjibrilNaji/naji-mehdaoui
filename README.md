@@ -1,64 +1,64 @@
 # Pimber
 
-# Setup du projet (à la racine du projet)
+# Project Setup (at the root of the project)
 
-- BDD
+- Database
 
 ```sh
 docker-compose -f docker/docker-compose.yml up
 ```
 
-ou aller a la racine du projet et lancer :
+or go to the root of the project and run:
 
 ```sh
 cd docker
 docker compose up
 ```
 
-## Lancer les migrations Liquibase :
+## Run Liquibase Migrations:
 
-Installer Liquibase sur macos
+Install Liquibase on macOS:
 
 ```sh
 brew install liquibase
 ```
 
-Dans le répertoire Back (une fois le back lancer et les tables créées avec l'ORM).
+In the Back directory (once the backend is running and the tables are created with the ORM):
 
 ```sh
 liquibase update --changelog-file src/main/resources/db/changelog/seed-data.yml
 ```
 
-Si la seed n'a pas fonctionné :
+If the seed didn't work:
 
 ```sh
 liquibase update --changelog-file src/main/resources/db/changelog/delete-seed.yml
 ```
 
-- Back
+- Backend
 
-Lancer le back Spring dans le répertoire `back`.
-A noter qu'il faut prendre le fichier d'exemple pour application.properties pour s'adapter à la configuration de la BDD en local.
+Run the Spring backend in the `back` directory.
+Note: Use the example `application.properties` file and adapt it to your local database configuration.
 
-- Front
+- Frontend
 
-Lancer le front Next.js :
+Run the Next.js frontend:
 
 ```sh
 npm i
 npm run dev
 ```
 
-On a la possibilité de voir toutes les soirées, de voir une seule soirée et d'ajouter une soirée.
+You can view all parties, view a single party, and add a party.
 
-# Optimisation des requêtes pour les Query N+1
+# Query Optimization for N+1 Problem
 
-- Utilisation de FetchType -> Lazy pour éviter les problèmes de performances avec les requêtes à gros volume
-- Utilisation des Join Fetch en Override des méthodes du CRUD de JPA Repository
+- Use `FetchType.LAZY` to avoid performance issues with large-volume queries
+- Use Join Fetch overrides in the CRUD methods of JPA Repository
 
-# Optimisation de la BDD avec une vue matérialisée : note d'un user calculée automatiquement
+# Database Optimization with a Materialized View: User's Average Rating Calculated Automatically
 
-## Requête SQL
+## SQL Query
 
 ```sql
 CREATE MATERIALIZED VIEW user_average_ratings A`
@@ -73,9 +73,9 @@ GROUP BY
     u.id;
 ```
 
-A terme, on ajoutera un refresh sur la vue lorsque des commentaires sont ajoutés ou modifiés pour le user.
+Eventually, a refresh will be added to the view when comments are added or updated for a user.
 
-## Entité
+## Entity
 
 ```java
 @Entity
@@ -89,9 +89,9 @@ public class UserAverageRating {
 }
 ```
 
-# Partition
+# Partitioning
 
-## Recréation de la table party depuis SQL pour la rendre partionnable
+## Recreate the `party` table in SQL to make it partitionable
 
 ```sql
 ALTER TABLE party RENAME TO party_old;
@@ -136,4 +136,4 @@ URL : http://localhost:8080/swagger-ui/index.html
 
 # Cache
 
-- Utilisation de cache pour certaines requêtes
+- Cache is used for some queries
